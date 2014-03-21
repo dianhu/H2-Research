@@ -16,15 +16,15 @@ public class JDBCTest {
 	static Properties prop = new Properties();
 	static String url = "jdbc:h2:tcp://localhost:9092/test9";
 
-	public static void main2(String[] args) throws Exception {
+	public static void main(String[] args) throws Exception {
 		Class.forName("org.h2.Driver");
 
 		Connection conn = DriverManager.getConnection(
-				"jdbc:h2:tcp://localhost:9092/mydb", "sa", "");
+				"jdbc:h2:tcp://localhost:5252/mydb", "sa", "");
 		Statement stmt = conn.createStatement();
-		stmt.executeUpdate("DROP TABLE IF EXISTS my_table");
-		stmt.executeUpdate("CREATE TABLE IF NOT EXISTS my_table(name varchar(20))");
-		stmt.executeUpdate("INSERT INTO my_table(name) VALUES('zhh')");
+		//stmt.executeUpdate("DROP TABLE IF EXISTS my_table");
+		//stmt.executeUpdate("CREATE TABLE IF NOT EXISTS my_table(name varchar(20))");
+		//stmt.executeUpdate("INSERT INTO my_table(name) VALUES('zhh')");
 
 		ResultSet rs = stmt.executeQuery("SELECT name FROM my_table");
 		rs.next();
@@ -69,7 +69,7 @@ public class JDBCTest {
 
 	}
 
-	public static void main(String[] args) throws Exception {
+	public static void main2(String[] args) throws Exception {
 		prop.setProperty("user", "sa");
 		prop.setProperty("password", "");
 

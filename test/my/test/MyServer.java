@@ -8,26 +8,27 @@ public class MyServer {
 		// System.setProperty("DATABASE_TO_UPPER", "false");
 		System.setProperty("h2.lobInDatabase", "false");
 		System.setProperty("h2.lobClientMaxSizeMemory", "1024");
-		System.setProperty("java.io.tmpdir", "E:\\H2\\tmp");
-		System.setProperty("h2.baseDir", "E:\\H2\\baseDir");
+		System.setProperty("java.io.tmpdir", "C:\\H2\\tmp");
+		System.setProperty("h2.baseDir", "C:\\H2\\baseDir");
 		//System.setProperty("h2.check2", "true");
 		ArrayList<String> list = new ArrayList<String>();
 		// list.add("-tcp");
 		// //list.add("-tool");
 		// org.h2.tools.Server.main(list.toArray(new String[list.size()]));
-		//
-		//list.add("-tcp");
-		// list.add("-tcpPort");
-		// list.add("9092");
-
+		
+		list.add("-tcp");
+		list.add("-tcpPort");
+		list.add("5252");
 		// 测试org.h2.server.TcpServer.checkKeyAndGetDatabaseName(String)
 		// list.add("-key");
 		// list.add("mydb");
 		// list.add("mydatabase");
 
-		list.add("-pg");
-		list.add("-tcp");
+		//list.add("-pg");
+		//list.add("-tcp");
 		//list.add("-web");
+		//list.add("-throwUnsupportedOption");
+		//list.add("-tcpShutdown");list.add("tcp:localhost");
 		org.h2.tools.Server.main(list.toArray(new String[list.size()]));
 	}
 }
